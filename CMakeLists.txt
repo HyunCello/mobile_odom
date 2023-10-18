@@ -5,7 +5,7 @@ project(mobile_odom)
 
 # Compile as C++11
 if(NOT CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD 11)
+  set(CMAKE_CXX_STANDARD 14)
 endif()
 
 # Find required ROS2 packages
