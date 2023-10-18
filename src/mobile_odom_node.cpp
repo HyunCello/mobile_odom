@@ -52,7 +52,11 @@ void CalcAblePosition()
 
     able_odom.theta += angular_delta;
 
-    geometry_msgs::msg::Quaternion odom_quat = tf::createQuaternionMsgFromYaw(able_odom.theta);
+    // New quaternion creation using tf2
+    tf2::Quaternion q;
+    q.setRPY(0, 0, able_odom.theta);
+
+    geometry_msgs::msg::Quaternion odom_quat = tf2::toMsg(q);
 
     odom_trans.header.stamp = current_time;
     odom_trans.header.frame_id = "odom";
