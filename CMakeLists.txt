@@ -41,11 +41,6 @@ install(TARGETS
   DESTINATION lib/${PROJECT_NAME}
 )
 
-install(
-  DIRECTORY launch config
-  DESTINATION share/${PROJECT_NAME}
-)
-
 # Export dependencies
 ament_export_dependencies(geometry_msgs rclcpp sensor_msgs nav_msgs std_msgs tf2 tf2_ros)
 
