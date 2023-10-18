@@ -1,10 +1,11 @@
 <?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>mobile_odom</name>
   <version>0.0.0</version>
-  <description>The mobile_odom package</description>
-  <maintainer email="tazel7885@todo.todo">tazel7885</maintainer>
-  <license>TODO</license>
+  <description>TODO: Package description</description>
+  <maintainer email="ubuntu@todo.todo">ubuntu</maintainer>
+  <license>TODO: License declaration</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
@@ -16,10 +17,10 @@
   <depend>tf2</depend>
   <depend>tf2_ros</depend>
 
-  <!-- If you're going to use Python nodes, add rclpy as a dependency -->
-  <!-- <depend>rclpy</depend> -->
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
 
   <export>
-    <!-- Other tools can request additional information be placed here -->
+    <build_type>ament_cmake</build_type>
   </export>
 </package>
