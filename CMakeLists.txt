@@ -17,6 +17,7 @@ find_package(std_msgs REQUIRED)
 find_package(tf2 REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(tf2_msgs REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
 
 # Include directories
 include_directories(include)
