@@ -41,9 +41,40 @@ void CalcAblePosition()
     dt = (current_time - last_time).seconds();
     last_time = current_time;
     
-    //... [rest of the function remains same]
+    float linear_vel = (velL + velR) / 2;
+    float angular_vel = (velR - velL) / wheel_base;
 
-    // If you want to ensure theta remains between 0 and 2*pi or -pi and pi, uncomment the section.
+    float distance_delta = linear_vel * 0.1;
+    float angular_delta = angular_vel * 0.1;
+
+    able_odom.x = able_odom.x + distance_delta * cos(able_odom.theta + angular_delta / 2);
+    able_odom.y = able_odom.y + distance_delta * sin(able_odom.theta + angular_delta / 2);
+
+    able_odom.theta += angular_delta;
+
+    geometry_msgs::Quaternion odom_quat = tf::createQuaternionMsgFromYaw(able_odom.theta);
+
+    odom_trans.header.stamp = current_time;
+    odom_trans.header.frame_id = "odom";
+    odom_trans.child_frame_id = "base_link";
+
+    odom_trans.transform.translation.x = able_odom.x;
+    odom_trans.transform.translation.y = able_odom.y;
+    odom_trans.transform.translation.z = 0.0;
+    odom_trans.transform.rotation = odom_quat;
+
+    odom.header.stamp = current_time;
+    odom.header.frame_id = "odom";
+
+    odom.pose.pose.position.x = able_odom.x;
+    odom.pose.pose.position.y = able_odom.y;
+    odom.pose.pose.position.z = 0.0;
+    odom.pose.pose.orientation = odom_quat;
+    //set the velocity
+    odom.child_frame_id = "base_link";
+    odom.twist.twist.linear.x= linear_vel;
+    odom.twist.twist.linear.y=0.0;
+    odom.twist.twist.angular.z = angular_vel;
 }
 
 int main(int argc, char **argv)
