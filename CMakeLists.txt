@@ -47,7 +47,7 @@ install(
 )
 
 # Export dependencies
-ament_export_dependencies(geometry_msgs rclcpp sensor_msgs std_msgs tf2 tf2_ros)
+ament_export_dependencies(geometry_msgs rclcpp sensor_msgs nav_msgs std_msgs tf2 tf2_ros)
 
 # Generate package
 ament_package()
