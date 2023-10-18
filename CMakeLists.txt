@@ -24,6 +24,7 @@ include_directories(include)
 # Create the mobile_odom executable
 add_executable(mobile_odom src/mobile_odom_node.cpp)
 ament_target_dependencies(mobile_odom
+  nav_msgs
   geometry_msgs
   rclcpp
   sensor_msgs
